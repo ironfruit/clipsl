@@ -17,6 +17,10 @@ def load_data(filepath):
     except:
         return {}
 
+def wipe_data():
+    with open(SAVED_DATA,"w") as f:
+        f.close()
+
 
 if len(sys.argv) == 2:
     command = sys.argv[1]
@@ -36,6 +40,8 @@ if len(sys.argv) == 2:
             print("Key does not exist")
     elif command == "list":
         print(data)
+    elif command == "wipe":
+        wipe_data()
     else:
         print("Unknown command...")
 else:
